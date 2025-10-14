@@ -1,10 +1,27 @@
 body {
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #fdf6f0;
+  background-color: #f9f7f6;
   color: #333;
-  line-height: 1.6;
+}
+
+header {
+  background-color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #444;
+  font-weight: bold;
 }
 
 section {
@@ -12,103 +29,44 @@ section {
   text-align: center;
 }
 
-#hero {
-  background: linear-gradient(to right, #f9d5d5, #fceabb);
-  padding: 60px 20px;
-}
-
 .cta-button {
   display: inline-block;
-  margin-top: 20px;
+  margin: 10px;
   padding: 12px 24px;
-  background: #ff6f61;
-  color: white;
-  text-decoration: none;
+  background-color: #6a4c93;
+  color: #fff;
+  border: none;
   border-radius: 6px;
-  font-weight: bold;
-  transition: background 0.3s ease;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 .cta-button:hover {
-  background: #e85c50;
-}
-
-#modules {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.module {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  max-width: 300px;
-}
-
-footer {
-  background: #eee;
-  padding: 20px;
-  font-size: 0.9em;
-}
-
-header {
-  position: sticky;
-  top: 0;
-  background: #fff8f0;
-  padding: 10px 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  z-index: 1000;
-  text-align: center;
-}
-
-header nav a {
-  margin: 0 12px;
-  text-decoration: none;
-  color: #ff6f61;
-  font-weight: bold;
+  background-color: #5a3b7a;
 }
 
 .welcome-message h2 {
-  font-size: 1.5em;
-  color: #ff6f61;
-  margin-bottom: 10px;
+  font-size: 24px;
+  color: #6a4c93;
 }
 
-#quote {
-  font-style: italic;
-  color: #555;
-  transition: opacity 0.5s ease;
+.visitor-counter img {
+  margin-top: 10px;
 }
 
-.visitor-counter {
+.module {
+  margin-bottom: 30px;
+}
+
+footer {
+  background-color: #eee;
+  padding: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.play-button-container {
   margin-top: 20px;
-  font-size: 1em;
-  color: #333;
-}
-
-.daily-ritual {
-  margin-top: 30px;
-  font-size: 1.1em;
-  color: #6A5ACD;
-}
-
-@media (max-width: 768px) {
-  #modules {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .module {
-    width: 90%;
-    max-width: 400px;
-  }
-
-  .cta-button {
-    width: 90%;
-    margin: 10px auto;
-    display: block;
-  }
+  text-align: center;
 }
