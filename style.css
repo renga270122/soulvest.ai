@@ -2,8 +2,8 @@ body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f9f7f6;
-  color: #333;
+  background-color: #fff8f6;
+  color: #2c2c2c;
 }
 
 header {
@@ -20,7 +20,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: #444;
+  color: #b30000;
   font-weight: bold;
 }
 
@@ -33,7 +33,7 @@ section {
   display: inline-block;
   margin: 10px;
   padding: 12px 24px;
-  background-color: #6a4c93;
+  background-color: #b30000;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -43,12 +43,12 @@ section {
 }
 
 .cta-button:hover {
-  background-color: #5a3b7a;
+  background-color: #990000;
 }
 
 .welcome-message h2 {
   font-size: 24px;
-  color: #6a4c93;
+  color: #b30000;
 }
 
 .visitor-counter img {
@@ -60,7 +60,7 @@ section {
 }
 
 footer {
-  background-color: #eee;
+  background-color: #f2f2f2;
   padding: 20px;
   font-size: 14px;
   text-align: center;
