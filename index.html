@@ -17,10 +17,15 @@
 </head>
 <body>
   <!-- Background Music -->
-  <audio autoplay loop>
+  <audio id="bgMusic" loop>
     <source src="assets/soulvest_theme.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
+
+  <!-- Play Button -->
+  <div class="play-button-container">
+    <button onclick="document.getElementById('bgMusic').play()" class="cta-button">🔊 Play Soulvest Theme</button>
+  </div>
 
   <header>
     <nav>

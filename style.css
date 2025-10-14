@@ -95,6 +95,11 @@ header nav a {
   color: #6A5ACD;
 }
 
+.play-button-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   #modules {
     flex-direction: column;
