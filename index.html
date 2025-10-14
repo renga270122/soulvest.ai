@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Soulvest.ai</title>
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-75ZF3726F6"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -21,8 +19,6 @@
     <source src="assets/soulvest_theme.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
-
-  <!-- Play Button -->
   <div class="play-button-container">
     <button onclick="document.getElementById('bgMusic').play()" class="cta-button">🔊 Play Soulvest Theme</button>
   </div>
@@ -37,12 +33,21 @@
   </header>
 
   <section id="hero">
+    <div class="lotus-container">
+      <img src="assets/lotus1.png" class="lotus" />
+      <img src="assets/lotus2.png" class="lotus" />
+    </div>
     <h1>Welcome to Soulvest.ai</h1>
     <div class="welcome-message">
       <h2>🌟 You are seen. You are safe. You are soulful.</h2>
-      <p id="quote">“Healing is not a destination, it’s a daily ritual.”</p>
+      <div class="quote-glow">
+        <p id="quote">“Healing is not a destination, it’s a daily ritual.”</p>
+      </div>
     </div>
     <a href="https://soulvest-music-jnt8gtmrdi3odzemtbslzm.streamlit.app" class="cta-button">🎶 Enter Soulvest Music</a>
+    <div class="waveform">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
     <a href="https://soulvest-soulskill.streamlit.app" class="cta-button">✨ Explore SoulSkill</a>
     <a href="https://soulvest-soulwell.streamlit.app" class="cta-button">🌸 Visit SoulWell</a>
     <div class="visitor-counter">
@@ -52,6 +57,12 @@
     <div class="daily-ritual">
       <p>🪷 Today’s Ritual: “Breathe deeply. Speak kindly. Reflect soulfully.”</p>
     </div>
+  </section>
+
+  <section id="portal">
+    <div class="stars"></div>
+    <h2>🌌 Soulvest 11:11 Portal</h2>
+    <p>Reflect. Heal. Align.</p>
   </section>
 
   <section id="about">
