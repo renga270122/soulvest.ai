@@ -42,5 +42,16 @@ jobs:
           name: html-validation
           path: html-validation.txt
 
-      # Accessibility checks (axe-core) can be added with Puppeteer if needed
-      # For now, Lighthouse covers accessibility, performance, SEO, best practices
+      - name: Install Puppeteer and axe-core
+        run: |
+          npm install puppeteer axe-core
+
+      - name: Run Accessibility Check (axe-core)
+        run: |
+          node webpage-accessibility-check.js
+
+      - name: Upload Accessibility Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: axe-accessibility-report
+          path: axe-accessibility-report.json
