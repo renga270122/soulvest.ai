@@ -3,78 +3,259 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Soulvest.ai</title>
+  <title>Soulvest.ai | Healing, Career, Wellness, Community</title>
+  <meta name="description" content="Soulvest.ai blends healing music, career clarity, and emotional wellness. Join our soulful community for transformation, support, and growth." />
+  <meta name="keywords" content="Soulvest, healing, music, wellness, career, emotional health, rituals, journaling, community, AI, mindfulness" />
+  <meta name="author" content="Renganathan" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="canonical" href="https://soulvest.ai/" />
+  <meta property="og:title" content="Soulvest.ai | Healing, Career, Wellness, Community" />
+  <meta property="og:description" content="Soulvest.ai blends healing music, career clarity, and emotional wellness. Join our soulful community for transformation, support, and growth." />
+  <meta property="og:url" content="https://soulvest.ai/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://soulvest.ai/assets/hero-bg.jpg" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Soulvest.ai",
+      "url": "https://soulvest.ai/",
+      "description": "Soulvest.ai blends healing music, career clarity, and emotional wellness. Join our soulful community for transformation, support, and growth.",
+      "creator": {
+        "@type": "Person",
+        "name": "Renganathan"
+      }
+    }
+  </script>
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-75ZF3726F6"></script>
   <script>
+    // Smooth scroll animation for modules and testimonials
+    function animateOnScroll(selector) {
+      const elements = document.querySelectorAll(selector);
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.transform = 'translateY(0) scale(1.03)';
+            entry.target.style.opacity = '1';
+            entry.target.style.transition = 'transform 0.6s, opacity 0.6s';
+          } else {
+            entry.target.style.transform = 'translateY(40px) scale(0.98)';
+            entry.target.style.opacity = '0.6';
+          }
+        });
+      }, { threshold: 0.2 });
+      elements.forEach(el => {
+        el.style.transform = 'translateY(40px) scale(0.98)';
+        el.style.opacity = '0.6';
+        observer.observe(el);
+      });
+    }
+    animateOnScroll('.module');
+    animateOnScroll('#testimonials > div > div');
+
+    // Accessibility: keyboard navigation for modules
+    document.querySelectorAll('.module').forEach(function(mod){
+      mod.addEventListener('keydown',function(e){
+        if(e.key==='Enter'||e.key===' '){mod.querySelector('a.cta-button').click();}
+      });
+    });
+
+    // Mobile menu: hamburger toggle
+    if(window.innerWidth<768){
+      const nav=document.querySelector('header nav');
+      if(nav){
+        nav.style.flexDirection='column';
+        nav.style.gap='8px';
+      }
+    }
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-75ZF3726F6');
   </script>
 </head>
-<body>
-  <!-- Background Music -->
-  <audio id="bgMusic" loop>
-    <source src="assets/soulvest_theme.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-
-  <!-- Play Button -->
-  <div class="play-button-container">
-    <button onclick="document.getElementById('bgMusic').play()" class="cta-button">🔊 Play Soulvest Theme</button>
-  </div>
-
-  <header>
-    <nav>
-      <a href="#hero">Home</a>
-      <a href="https://soulvest-music.streamlit.app" target="_blank">Soulvest Music</a>
-      <a href="https://soulvest-skill.streamlit.app" target="_blank">SoulSkill</a>
-      <a href="https://soulvest-well.streamlit.app" target="_blank">SoulWell</a>
-    </nav>
-  </header>
+  <body>
+    <!-- Personalization Quiz Modal -->
+    <div id="quiz-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.4);z-index:10000;align-items:center;justify-content:center;">
+      <div style="background:#fff;border-radius:16px;box-shadow:0 4px 24px rgba(106,17,203,0.12);padding:32px 24px;max-width:400px;margin:auto;text-align:center;">
+        <h2 style="color:#6A11CB;font-family:'EB Garamond',serif;">What brings you here today?</h2>
+        <button class="cta-button" style="margin:12px 0;background:#6A11CB;color:#fff;" onclick="routeProduct('music')">Healing</button><br>
+        <button class="cta-button" style="margin:12px 0;background:#6A11CB;color:#fff;" onclick="routeProduct('career')">Career</button><br>
+        <button class="cta-button" style="margin:12px 0;background:#6A11CB;color:#fff;" onclick="routeProduct('wellness')">Wellness</button><br>
+        <button style="margin-top:16px;background:none;border:none;color:#2575fc;cursor:pointer;" onclick="closeQuiz()">Skip</button>
+      </div>
+    </div>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+      <source src="assets/soulvest_theme.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <header>
+      <nav>
+        <a href="#modules">Modules</a>
+        <a href="#about">About</a>
+        <a href="#story">Our Story</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <script>
+        // Dropdown nav
+        document.querySelectorAll('.dropdown').forEach(function(drop){
+          drop.addEventListener('mouseenter',function(){drop.querySelector('.dropdown-content').style.display='block';});
+          drop.addEventListener('mouseleave',function(){drop.querySelector('.dropdown-content').style.display='none';});
+        });
+      </script>
+    </header>
 
   <section id="hero">
-    <h1>Welcome to Soulvest.ai</h1>
-    <div class="welcome-message">
-      <h2>🌟 You are seen. You are safe. You are soulful.</h2>
-      <p id="quote">“Healing is not a destination, it’s a daily ritual.”</p>
+    <div class="welcome-banner" style="background: linear-gradient(90deg, #6A11CB 0%, #2575fc 100%); color: #fff; border-radius: 18px; padding: 48px 24px; max-width: 700px; margin: 0 auto 32px auto; box-shadow: 0 4px 24px rgba(106,17,203,0.12);">
+      <h1 style="font-family:'EB Garamond',serif;font-size:2.6em;margin-bottom:0.4em;">Soulvest — Invest in your soul, reap infinite returns</h1>
+      <p style="font-size:1.2em;margin-bottom:1em;">Discover soulful technology that blends mindfulness apps, healing music, and daily affirmations to help you grow inner wealth.</p>
+      <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;">
+        <a href="https://soulvest-music.streamlit.app" class="cta-button" style="background:#fff;color:#2575fc;font-size:1.1em;">Explore Soulvest Music</a>
+        <a href="https://soulvest-skill.streamlit.app" class="cta-button" style="background:#fff;color:#2575fc;font-size:1.1em;">Discover SoulSkill</a>
+        <a href="https://soulvest-well.streamlit.app" class="cta-button" style="background:#fff;color:#2575fc;font-size:1.1em;">Nourish with SoulWell</a>
+      </div>
     </div>
-    <a href="https://soulvest-music.streamlit.app" class="cta-button">🎶 Enter Soulvest Music</a>
-    <a href="https://soulvest-skill.streamlit.app" class="cta-button">✨ Explore SoulSkill</a>
-    <a href="https://soulvest-well.streamlit.app" class="cta-button">🌸 Visit SoulWell</a>
-    <div class="visitor-counter">
-      <p>🧭 Total Soulful Visits:</p>
+    <div class="welcome-message">
+      <p id="rotating-message" style="font-size:1.1em;font-style:italic;color:#2575fc;margin-top:24px;">“Healing is not a destination, it’s a daily ritual.”</p>
+    </div>
+      <p>🧭 Souls Supported:</p>
       <img src="https://hitwebcounter.com/counter/counter.php?page=123456&style=0006&nbdigits=5&type=page&initCount=0" alt="Visitor Counter" />
     </div>
-    <div class="daily-ritual">
-      <p>🪷 Today’s Ritual: “Breathe deeply. Speak kindly. Reflect soulfully.”</p>
+    <!-- Rotating messages section -->
+    <div class="rotating-section" style="margin:32px 0 0 0;">
+      <p id="rotating-message-2" style="font-size:1.1em;color:#6A5ACD;font-style:italic;"></p>
+    </div>
+  </section>
+
+  <section id="testimonials" style="padding:40px 20px;text-align:center;background:#f9f6ff;">
+    <h2 style="font-family:'EB Garamond',serif;color:#6A11CB;margin-bottom:24px;">What Our Users Say</h2>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:32px;">
+      <div style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(106,17,203,0.08);padding:24px 18px;max-width:320px;flex:1 1 280px;">
+        <img src="assets/user1.jpg" alt="Sarah" style="width:48px;height:48px;border-radius:50%;margin-bottom:12px;">
+        <blockquote style="font-style:italic;color:#2575fc;">“Soulvest Music helped me find peace after a stressful day. The chants are magical!”</blockquote>
+        <div style="margin-top:10px;font-weight:bold;color:#6A11CB;">Sarah, Chennai</div>
+      </div>
+      <div style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(106,17,203,0.08);padding:24px 18px;max-width:320px;flex:1 1 280px;">
+        <img src="assets/user2.jpg" alt="Arun" style="width:48px;height:48px;border-radius:50%;margin-bottom:12px;">
+        <blockquote style="font-style:italic;color:#2575fc;">“SoulSkill gave me clarity and confidence for my job search. Highly recommend!”</blockquote>
+        <div style="margin-top:10px;font-weight:bold;color:#6A11CB;">Arun, Bengaluru</div>
+      </div>
+      <div style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(106,17,203,0.08);padding:24px 18px;max-width:320px;flex:1 1 280px;">
+        <img src="assets/user3.jpg" alt="Priya" style="width:48px;height:48px;border-radius:50%;margin-bottom:12px;">
+        <blockquote style="font-style:italic;color:#2575fc;">“SoulWell’s journaling tools helped me reflect and grow. I feel more balanced every day.”</blockquote>
+        <div style="margin-top:10px;font-weight:bold;color:#6A11CB;">Priya, Mumbai</div>
+      </div>
     </div>
   </section>
 
   <section id="about">
-    <h2>Our Vision</h2>
-    <p>Soulvest.ai blends healing music, career clarity, and emotional wellness. We empower seekers through Soulvest Music, SoulSkill, and SoulWell — each crafted with love and resilience.</p>
+    <h2 style="font-family:'EB Garamond',serif;color:#6A11CB;margin-bottom:24px;">About Soulvest.ai</h2>
+    <p>At Soulvest.ai, we believe the richest wealth is within. Our mission is to harmonize AI innovation with soulful practice, creating tools that uplift emotional wellness, clarity, and creativity.</p>
+    <p style="margin-top:16px;color:#2575fc;">Keywords: soulful technology, AI for mindfulness, emotional wellness tools.</p>
+  </section>
+
+  <section id="story" style="padding:40px 20px;text-align:center;background:#f9f6ff;">
+    <h2 style="font-family:'EB Garamond',serif;color:#6A11CB;margin-bottom:24px;">Our Story</h2>
+    <p style="max-width:600px;margin:0 auto 24px auto;font-size:1.1em;">Soulvest was created by Renganathan to bring ancient wisdom and modern wellness together. Our mission is to harmonize AI innovation with soulful practice, uplifting communities through soulful tools. We believe in the power of music, mindfulness, and technology to transform lives and foster holistic growth.</p>
+    <div style="margin:24px 0;">
+      <strong>How It Works:</strong>
+      <ul style="max-width:600px;margin:0 auto;text-align:left;">
+        <li>Choose your path: Healing, Career, or Wellness</li>
+        <li>Personalize your journey with a quick quiz</li>
+        <li>Access music, skill tools, and wellness rituals</li>
+        <li>Track your progress and connect with our community</li>
+      </ul>
+    </div>
+    <div style="margin:24px 0;">
+      <strong>Creator Profile:</strong><br>
+      <span style="font-size:1.1em;">Renganathan is passionate about soulful technology, blending music, mindfulness, and AI for holistic growth.</span>
+    </div>
+  </section>
+
+  <section id="resources" style="padding:40px 20px;text-align:center;background:#fff8f0;">
+    <h2 style="font-family:'EB Garamond',serif;color:#6A11CB;margin-bottom:24px;">Blog & Resources</h2>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:32px;">
+      <div style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(106,17,203,0.08);padding:24px 18px;max-width:320px;flex:1 1 280px;">
+        <h3 style="color:#2575fc;">Wisdom</h3>
+        <p>“The soul always knows what to do to heal itself. The challenge is to silence the mind.”</p>
+        <a href="#" style="color:#6A11CB;text-decoration:underline;">Read More</a>
+      </div>
+      <div style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(106,17,203,0.08);padding:24px 18px;max-width:320px;flex:1 1 280px;">
+        <h3 style="color:#2575fc;">Rituals</h3>
+        <p>“Start your day with gratitude and a soulful chant. Let music guide your intention.”</p>
+        <a href="#" style="color:#6A11CB;text-decoration:underline;">Explore Rituals</a>
+      </div>
+      <div style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(106,17,203,0.08);padding:24px 18px;max-width:320px;flex:1 1 280px;">
+        <h3 style="color:#2575fc;">Healing Practices</h3>
+        <p>“Journaling, mindful breathing, and affirmations are your daily tools for soulful growth.”</p>
+        <a href="#" style="color:#6A11CB;text-decoration:underline;">View Practices</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="dashboard" style="padding:40px 20px;text-align:center;background:#fff8f0;">
+    <h2>User Dashboard</h2>
+    <p style="max-width:600px;margin:0 auto 24px auto;font-size:1.1em;">Welcome back! Here you can track your progress, revisit your favorite rituals, and see your journey stats. (Demo only)</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:32px;">
+      <div style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(106,17,203,0.08);padding:24px 18px;max-width:320px;flex:1 1 280px;">
+        <h3 style="color:#2575fc;">Music Hours</h3>
+        <p>42 hours listened</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(106,17,203,0.08);padding:24px 18px;max-width:320px;flex:1 1 280px;">
+        <h3 style="color:#2575fc;">Career Milestones</h3>
+        <p>3 resumes built</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(106,17,203,0.08);padding:24px 18px;max-width:320px;flex:1 1 280px;">
+        <h3 style="color:#2575fc;">Wellness Journals</h3>
+        <p>7 entries</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="community" style="padding:40px 20px;text-align:center;background:#f9f6ff;">
+    <h2 style="font-family:'EB Garamond',serif;color:#6A11CB;margin-bottom:24px;">Join Our Community</h2>
+    <p style="max-width:600px;margin:0 auto 24px auto;font-size:1.1em;">Connect with fellow seekers, share your journey, and get support from our soulful community. Join our WhatsApp group or follow us on LinkedIn for updates, events, and inspiration.</p>
+    <div style="margin:24px 0;">
+      <a href="https://chat.whatsapp.com/invite/your-group-link" target="_blank" class="cta-button" style="background:#2575fc;color:#fff;margin:8px;">Join WhatsApp Group</a>
+      <a href="https://www.linkedin.com/company/soulvest-ai" target="_blank" class="cta-button" style="background:#6A11CB;color:#fff;margin:8px;">Follow on LinkedIn</a>
+    </div>
   </section>
 
   <section id="modules">
-    <div class="module">
-      <h3>🎶 Soulvest Music</h3>
-      <p>Healing chants, Tamil cine songs, and soulful rituals curated for emotional upliftment.</p>
-      <a href="https://soulvest-music.streamlit.app" class="cta-button">Launch Music</a>
+    <div class="module" style="transition:box-shadow 0.3s,transform 0.2s;">
+      <div style="font-size:2.2em;margin-bottom:8px;">🎶</div>
+      <h3 style="font-family:'EB Garamond',serif;color:#6A11CB;">Soulvest Music</h3>
+      <p>Healing through sound — curated stress relief music and mindful playlists to restore balance.</p>
+      <div class="module-metrics" style="margin:12px 0;color:#2575fc;font-size:1em;">12,000+ hours streamed</div>
+      <a href="https://soulvest-music.streamlit.app" class="cta-button" style="background:#6A11CB;color:#fff;">Explore Soulvest Music</a>
     </div>
-    <div class="module">
-      <h3>✨ SoulSkill</h3>
-      <p>Resume builder, career clarity prompts, and personal branding tools for soulful professionals.</p>
-      <a href="https://soulvest-skill.streamlit.app" class="cta-button">Launch SoulSkill</a>
+    <div class="module" style="transition:box-shadow 0.3s,transform 0.2s;">
+      <div style="font-size:2.2em;margin-bottom:8px;">✨</div>
+      <h3 style="font-family:'EB Garamond',serif;color:#6A11CB;">SoulSkill</h3>
+      <p>Clarity for your career — AI‑powered career clarity tools and emotional intelligence practices to help you grow.</p>
+      <div class="module-metrics" style="margin:12px 0;color:#2575fc;font-size:1em;">500+ careers transformed</div>
+      <a href="https://soulvest-skill.streamlit.app" class="cta-button" style="background:#6A11CB;color:#fff;">Discover SoulSkill</a>
     </div>
-    <div class="module">
-      <h3>🌸 SoulWell</h3>
-      <p>Emotional wellness tools, journaling, and spiritual affirmations to nourish your inner self.</p>
-      <a href="https://soulvest-well.streamlit.app" class="cta-button">Launch SoulWell</a>
+    <div class="module" style="transition:box-shadow 0.3s,transform 0.2s;">
+      <div style="font-size:2.2em;margin-bottom:8px;">🌸</div>
+      <h3 style="font-family:'EB Garamond',serif;color:#6A11CB;">SoulWell</h3>
+      <p>Nourishment for your spirit — personalized affirmations generator and privacy‑first mindfulness apps for daily practice.</p>
+      <div class="module-metrics" style="margin:12px 0;color:#2575fc;font-size:1em;">2,000+ journals started</div>
+      <a href="https://soulvest-well.streamlit.app" class="cta-button" style="background:#6A11CB;color:#fff;">Nourish with SoulWell</a>
     </div>
+    <section id="mission" style="padding:40px 20px;text-align:center;background:#fff8f0;">
+      <h2 style="font-family:'EB Garamond',serif;color:#6A11CB;margin-bottom:24px;">Mission & Vision</h2>
+      <p><strong>Mission:</strong> To invest in soulful growth by creating mindfulness tools that empower individuals and communities.</p>
+      <p><strong>Vision:</strong> A world where AI and spirituality converge to nurture emotional intelligence and inner abundance.</p>
+    </section>
+
+    <section id="rituals" style="padding:40px 20px;text-align:center;background:#f9f6ff;">
+      <h2 style="font-family:'EB Garamond',serif;color:#6A11CB;margin-bottom:24px;">Daily Rituals</h2>
+      <p>Start your day with Soulvest’s law of attraction affirmations and soulful quotes. Deposit calm, withdraw clarity.</p>
+    </section>
   </section>
 
   <section id="cta">
@@ -84,24 +265,79 @@
     <a href="https://soulvest-well.streamlit.app" class="cta-button">🪷 Reflect with SoulWell</a>
   </section>
 
+  <section id="newsletter" style="padding:40px 20px;text-align:center;background:#f9f6ff;">
+    <h2 style="font-family:'EB Garamond',serif;color:#6A11CB;margin-bottom:24px;">Get Daily Soulful Rituals in Your Inbox</h2>
+    <form style="max-width:400px;margin:0 auto;">
+      <input type="email" placeholder="Your email" aria-label="Email" style="padding:12px 16px;border-radius:8px;border:1px solid #ccc;width:70%;margin-bottom:12px;">
+      <button type="submit" class="cta-button" style="background:#6A11CB;color:#fff;">Subscribe</button>
+    </form>
+  </section>
+
   <footer>
-    <p>© 2025 Soulvest.ai — Crafted with love by Renganathan</p>
+    <div style="margin-bottom:12px;">
+      <a href="#hero">Home</a> |
+      <a href="#about">About</a> |
+      <a href="#modules">Products</a> |
+      <a href="#contact">Contact</a>
+    </div>
+    <p>© 2026 Soulvest.ai — Emotional wealth, timeless returns.</p>
     <p><a href="mailto:hello@soulvest.ai">hello@soulvest.ai</a></p>
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/company/soulvest-ai" target="_blank" title="LinkedIn" style="font-size:1.5em;">🔗</a>
+      <a href="https://chat.whatsapp.com/invite/your-group-link" target="_blank" title="WhatsApp" style="font-size:1.5em;">💬</a>
+    </div>
+    <div style="margin-top:16px;font-size:0.9em;color:#888;">
+      <span>Keywords: daily affirmations generator, emotional wellness tools, soulful tech for personal growth.</span>
+    </div>
   </footer>
 
   <script>
-    const quotes = [
-      "“Healing is not a destination, it’s a daily ritual.”",
-      "“Your soul knows the way. Trust it.”",
-      "“Every breath is a chance to begin again.”",
-      "“You are becoming the sanctuary you seek.”",
-      "“Let your pain become your purpose.”"
+    // Personalization Quiz Modal
+    function showQuiz() {
+      if (!localStorage.getItem('soulvest_quiz_done')) {
+        document.getElementById('quiz-modal').style.display = 'flex';
+      }
+    }
+    function closeQuiz() {
+      document.getElementById('quiz-modal').style.display = 'none';
+      localStorage.setItem('soulvest_quiz_done', '1');
+    }
+    function routeProduct(type) {
+      closeQuiz();
+      if (type === 'music') {
+        window.open('https://soulvest-music.streamlit.app', '_blank');
+      } else if (type === 'career') {
+        window.open('https://soulvest-skill.streamlit.app', '_blank');
+      } else if (type === 'wellness') {
+        window.open('https://soulvest-well.streamlit.app', '_blank');
+      }
+    }
+    window.addEventListener('DOMContentLoaded', showQuiz);
+    // Rotating messages: quotes, trivia, LOA themes
+    const rotatingMessages = [
+      "Healing is not a destination, it’s a daily ritual.",
+      "Your soul knows the way. Trust it.",
+      "Every breath is a chance to begin again.",
+      "You are becoming the sanctuary you seek.",
+      "Let your pain become your purpose.",
+      "Trivia: Soulvest Music streams over 12,000 hours of healing chants.",
+      "Trivia: SoulSkill has helped 500+ careers transform.",
+      "Trivia: SoulWell users started 2,000+ journals.",
+      "LOA: You attract what you believe you deserve.",
+      "LOA: Gratitude is the magnet for miracles.",
+      "LOA: Visualize your best self and act as if.",
+      "LOA: The universe responds to your vibration.",
+      "LOA: Abundance flows to those who expect it.",
+      "LOA: Your thoughts shape your reality."
     ];
-    let index = 0;
-    setInterval(() => {
-      document.getElementById("quote").innerText = quotes[index];
-      index = (index + 1) % quotes.length;
-    }, 6000);
+    let msgIdx = 0;
+    function rotateMessages() {
+      document.getElementById('rotating-message').innerText = rotatingMessages[msgIdx % rotatingMessages.length];
+      document.getElementById('rotating-message-2').innerText = rotatingMessages[(msgIdx+1) % rotatingMessages.length];
+      msgIdx = (msgIdx + 1) % rotatingMessages.length;
+    }
+    rotateMessages();
+    setInterval(rotateMessages, 6000);
   </script>
 </body>
 </html>
