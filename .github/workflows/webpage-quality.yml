@@ -1,0 +1,46 @@
+name: Webpage Quality Checks
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Lighthouse and html-validator-cli
+        run: |
+          npm install -g lighthouse html-validator-cli
+
+      - name: Run Lighthouse
+        run: |
+          lighthouse index.html --output html --output-path ./lighthouse-report.html --chrome-flags="--headless"
+
+      - name: Run HTML Validator
+        run: |
+          html-validator --file=index.html --format=gnu > html-validation.txt
+
+      - name: Upload Lighthouse Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: lighthouse-report
+          path: lighthouse-report.html
+
+      - name: Upload HTML Validation Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: html-validation
+          path: html-validation.txt
+
+      # Accessibility checks (axe-core) can be added with Puppeteer if needed
+      # For now, Lighthouse covers accessibility, performance, SEO, best practices
