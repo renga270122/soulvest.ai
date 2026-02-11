@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#6A11CB" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Soulvest.ai | Healing, Career, Wellness, Community</title>
@@ -77,6 +79,17 @@
   </script>
 </head>
   <body>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }, function(err) {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
     <!-- Personalization Quiz Modal (Enhanced) -->
     <div id="quiz-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.4);z-index:10000;align-items:center;justify-content:center;">
       <div style="background:#fff;border-radius:16px;box-shadow:0 4px 24px rgba(106,17,203,0.12);padding:32px 24px;max-width:400px;margin:auto;text-align:center;">
