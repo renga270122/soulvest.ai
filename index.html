@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
     <meta name="theme-color" content="#6A11CB" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,14 +20,54 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Soulvest.ai",
-      "url": "https://soulvest.ai/",
-      "description": "Soulvest.ai blends healing music, career clarity, and emotional wellness. Join our soulful community for transformation, support, and growth.",
-      "creator": {
-        "@type": "Person",
-        "name": "Renganathan"
-      }
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "Soulvest.ai",
+          "url": "https://soulvest.ai/",
+          "description": "Soulvest.ai blends healing music, career clarity, and emotional wellness. Join our soulful community for transformation, support, and growth."
+        },
+        {
+          "@type": "Organization",
+          "name": "Soulvest.ai",
+          "url": "https://soulvest.ai/",
+          "email": "mailto:soulvest1111@gmail.com",
+          "founder": {
+            "@type": "Person",
+            "name": "Renganathan"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "soulvest1111@gmail.com",
+            "availableLanguage": "English"
+          }
+        }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Soulvest.ai?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Soulvest.ai is a wellness-focused platform connecting people to healing music, career clarity tools, and emotional wellness experiences."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I contact Soulvest.ai?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can contact Soulvest.ai at soulvest1111@gmail.com through the contact details published on the website."
+          }
+        }
+      ]
     }
   </script>
 
@@ -118,10 +159,12 @@
       <nav>
         <a href="#hero" class="cta-button" style="background:#6A11CB;color:#fff;">Home</a>
         <a href="#products" class="cta-button" style="background:#6A11CB;color:#fff;">Products</a>
-        <a href="#about" class="cta-button" style="background:#6A11CB;color:#fff;">About</a>
-        <a href="#resources" class="cta-button" style="background:#6A11CB;color:#fff;">Blog</a>
+        <a href="commune-overview.html" class="cta-button" style="background:#6A11CB;color:#fff;">Overview</a>
+        <a href="about.html" class="cta-button" style="background:#6A11CB;color:#fff;">About</a>
+        <a href="founder-updates.html" class="cta-button" style="background:#6A11CB;color:#fff;">Updates</a>
         <a href="#community" class="cta-button" style="background:#6A11CB;color:#fff;">Community</a>
-        <a href="#footer" class="cta-button" style="background:#6A11CB;color:#fff;">Contact</a>
+        <a href="contact.html" class="cta-button" style="background:#6A11CB;color:#fff;">Contact</a>
+        <a href="privacy.html" class="cta-button" style="background:#6A11CB;color:#fff;">Privacy</a>
       </nav>
       <script>
         // Dropdown nav
@@ -136,11 +179,15 @@
     <div class="welcome-banner" style="background: url('assets/hero-bg.jpg') center/cover; color: #fff; border-radius: 18px; padding: 56px 28px; max-width: 760px; margin: 0 auto 36px auto; box-shadow: 0 4px 24px rgba(106,17,203,0.12);">
       <h1 style="font-family:'EB Garamond',serif;font-size:2.7em;margin-bottom:0.3em;">Welcome to Soulvest</h1>
       <div style="font-size:1.2em;color:#fff;margin-bottom:0.7em;font-weight:bold;">Invest in your inner wealth</div>
-      <p style="font-size:1.18em;margin-bottom:1em;max-width:600px;margin-left:auto;margin-right:auto;">A radiant digital sanctuary designed to uplift seekers through soulful music, career clarity, and emotional wellness rituals. Built with love and resilience, Soulvest integrates three core modules to help you align with your purpose and practice emotional intelligence:</p>
+      <p style="font-size:1.18em;margin-bottom:1em;max-width:600px;margin-left:auto;margin-right:auto;">Soulvest.ai is a public-facing wellness platform. Today, visitors can access live experiences for healing music, career clarity, and emotional wellness. Additional resident-facing tools and community programs are being expanded in pilot phases.</p>
       <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;">
         <a href="https://soulvest-music.streamlit.app" class="cta-button" style="background:#fff;color:#2575fc;font-size:1.1em;">Explore Soulvest Music</a>
         <a href="https://soulvest-skill.streamlit.app" class="cta-button" style="background:#fff;color:#2575fc;font-size:1.1em;">Discover SoulSkill</a>
         <a href="https://soulvest-well.streamlit.app" class="cta-button" style="background:#fff;color:#2575fc;font-size:1.1em;">Nourish with SoulWell</a>
+      </div>
+      <div style="margin-top:20px;font-size:0.98em;background:rgba(255,255,255,0.16);border:1px solid rgba(255,255,255,0.28);border-radius:14px;padding:14px 16px;max-width:640px;margin-left:auto;margin-right:auto;">
+        <strong>Live now:</strong> Soulvest Music, SoulSkill, SoulWell, public contact and policy pages.<br>
+        <strong>Pilot and phased rollout:</strong> resident benefits program, commune overview materials, roadmap milestones, and selected companion tools.
       </div>
     </div>
       <div class="welcome-message">
@@ -161,11 +208,11 @@
         </div>
         <div style="background:#fff8f0;border-radius:12px;box-shadow:0 2px 8px rgba(106,17,203,0.08);padding:18px 24px;min-width:180px;">
           <div style="font-size:1.3em;color:#6A11CB;font-weight:bold;">1,200+</div>
-          <div style="color:#2575fc;">Soulvest Cards created</div>
+          <div style="color:#2575fc;">Core product sessions completed</div>
         </div>
         <div style="background:#fff8f0;border-radius:12px;box-shadow:0 2px 8px rgba(106,17,203,0.08);padding:18px 24px;min-width:180px;">
-          <div style="font-size:1.3em;color:#6A11CB;font-weight:bold;">2,500+</div>
-          <div style="color:#2575fc;">Affirmations generated</div>
+          <div style="font-size:1.3em;color:#6A11CB;font-weight:bold;">Pilot</div>
+          <div style="color:#2575fc;">Companion tools rolling out in phases</div>
         </div>
       </div>
       <div class="hero-micro-message" style="margin-top:28px;font-size:1.1em;color:#2575fc;font-style:italic;">
@@ -186,28 +233,66 @@
     <p>At Soulvest.ai, we believe the richest wealth is within. Our mission is to harmonize AI innovation with soulful practice, creating tools that uplift emotional wellness, clarity, and creativity.</p>
   </section>
 
+  <section id="trust" style="padding:40px 20px;text-align:center;background:#ffffff;">
+    <h2 style="font-family:'EB Garamond',serif;color:#6A11CB;margin-bottom:24px;">Built for Trust</h2>
+    <p style="max-width:760px;margin:0 auto 24px auto;font-size:1.08em;">Soulvest.ai maintains a public landing page, published contact details, privacy documentation, and active product links for live experiences. New resident-facing offerings are being documented through clearly labeled overview, benefits, and roadmap pages.</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;max-width:980px;margin:0 auto;">
+      <div style="background:#fff8f0;border-radius:16px;box-shadow:0 2px 8px rgba(106,17,203,0.08);padding:20px;max-width:280px;flex:1 1 240px;">
+        <h3 style="color:#2575fc;margin-top:0;">Founder</h3>
+        <p style="margin-bottom:0;">Renganathan</p>
+      </div>
+      <div style="background:#fff8f0;border-radius:16px;box-shadow:0 2px 8px rgba(106,17,203,0.08);padding:20px;max-width:280px;flex:1 1 240px;">
+        <h3 style="color:#2575fc;margin-top:0;">Contact</h3>
+        <p style="margin-bottom:0;"><a href="mailto:soulvest1111@gmail.com" style="color:#6A11CB;text-decoration:none;">soulvest1111@gmail.com</a></p>
+      </div>
+      <div style="background:#fff8f0;border-radius:16px;box-shadow:0 2px 8px rgba(106,17,203,0.08);padding:20px;max-width:280px;flex:1 1 240px;">
+        <h3 style="color:#2575fc;margin-top:0;">Policies</h3>
+        <p style="margin-bottom:0;"><a href="privacy.html" style="color:#6A11CB;text-decoration:none;">Privacy Policy</a> and public contact page available</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="status" style="padding:40px 20px;text-align:center;background:#f9f6ff;">
+    <h2 style="font-family:'EB Garamond',serif;color:#6A11CB;margin-bottom:24px;">What Is Live and What Is in Pilot</h2>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:24px;max-width:980px;margin:0 auto;align-items:stretch;">
+      <div style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(106,17,203,0.08);padding:24px 20px;max-width:420px;flex:1 1 320px;text-align:left;">
+        <h3 style="color:#2575fc;margin-top:0;">Live Now</h3>
+        <p>Soulvest Music, SoulSkill, and SoulWell are publicly accessible today through their linked experiences. The main site also publishes founder identity, contact information, and privacy documentation.</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(106,17,203,0.08);padding:24px 20px;max-width:420px;flex:1 1 320px;text-align:left;">
+        <h3 style="color:#2575fc;margin-top:0;">In Pilot</h3>
+        <p>Resident benefits, commune programming, roadmap milestones, and selected companion products are being rolled out in phases. These areas are described publicly, but availability may be limited while programs mature.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="story" style="padding:40px 20px;text-align:center;background:#f9f6ff;">
     <h2 style="font-family:'EB Garamond',serif;color:#6A11CB;margin-bottom:24px;">Our Story</h2>
     <p style="max-width:700px;margin:0 auto 24px auto;font-size:1.1em;">Soulvest was born from the belief that emotional intelligence, Ikigai, and the Law of Attraction can be amplified through soulful technology. Our mission is to harmonize AI innovation with mindful practice, helping seekers invest in their inner wealth.</p>
   </section>
 
   <section id="resources" style="padding:40px 20px;text-align:center;background:#fff8f0;">
-    <h2 style="font-family:'EB Garamond',serif;color:#6A11CB;margin-bottom:24px;">Blog & Resources</h2>
+    <h2 style="font-family:'EB Garamond',serif;color:#6A11CB;margin-bottom:24px;">Overview & Resources</h2>
     <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:32px;">
       <div style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(106,17,203,0.08);padding:24px 18px;max-width:320px;flex:1 1 280px;">
-        <h3 style="color:#2575fc;">Wisdom</h3>
-        <p>“The soul always knows what to do to heal itself. The challenge is to silence the mind.”</p>
-        <a href="#" style="color:#6A11CB;text-decoration:underline;">Read More</a>
+        <h3 style="color:#2575fc;">Soulvest Commune Overview</h3>
+        <p>A public overview of the Soulvest commune vision, operating model, and phased buildout focus.</p>
+        <a href="commune-overview.html" style="color:#6A11CB;text-decoration:underline;">Read Overview</a>
       </div>
       <div style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(106,17,203,0.08);padding:24px 18px;max-width:320px;flex:1 1 280px;">
-        <h3 style="color:#2575fc;">Rituals</h3>
-        <p>“Start your day with gratitude and a soulful chant. Let music guide your intention.”</p>
-        <a href="#" style="color:#6A11CB;text-decoration:underline;">Explore Rituals</a>
+        <h3 style="color:#2575fc;">Resident Benefits</h3>
+        <p>A clear summary of what residents and early participants can expect from the Soulvest ecosystem.</p>
+        <a href="resident-benefits.html" style="color:#6A11CB;text-decoration:underline;">View Benefits</a>
       </div>
       <div style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(106,17,203,0.08);padding:24px 18px;max-width:320px;flex:1 1 280px;">
-        <h3 style="color:#2575fc;">Healing Practices</h3>
-        <p>“Journaling, mindful breathing, and affirmations are your daily tools for soulful growth.”</p>
-        <a href="#" style="color:#6A11CB;text-decoration:underline;">View Practices</a>
+        <h3 style="color:#2575fc;">Roadmap</h3>
+        <p>A milestone-based roadmap showing what is live now, what is in pilot, and what comes next.</p>
+        <a href="roadmap.html" style="color:#6A11CB;text-decoration:underline;">See Roadmap</a>
+      </div>
+      <div style="background:#fff;border-radius:16px;box-shadow:0 2px 8px rgba(106,17,203,0.08);padding:24px 18px;max-width:320px;flex:1 1 280px;">
+        <h3 style="color:#2575fc;">Founder Updates</h3>
+        <p>A lightweight log of public-facing progress updates, trust milestones, and rollout notes.</p>
+        <a href="founder-updates.html" style="color:#6A11CB;text-decoration:underline;">Read Updates</a>
       </div>
     </div>
   </section>
@@ -244,6 +329,7 @@
 
   <section id="products" style="padding:40px 20px;text-align:center;background:#fff8f0;">
     <h2 style="font-family:'EB Garamond',serif;color:#6A11CB;margin-bottom:24px;">Our Products</h2>
+    <p style="max-width:760px;margin:0 auto 24px auto;font-size:1.05em;">Soulvest Music, SoulSkill, and SoulWell are the current live modules. Companion experiences listed below are publicly visible but remain in pilot or early access unless otherwise stated.</p>
     <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:32px;">
       <div class="module" style="transition:box-shadow 0.3s,transform 0.2s;">
       <div style="font-size:2.2em;margin-bottom:8px;">🎶</div>
@@ -269,23 +355,23 @@
     <div class="module" style="transition:box-shadow 0.3s,transform 0.2s;">
       <div style="font-size:2.2em;margin-bottom:8px;">💳</div>
       <h3 style="font-family:'EB Garamond',serif;color:#6A11CB;">Soulvest Card</h3>
-      <p>Your digital affirmation card — receive daily inspiration and track your soulful deposits.</p>
-      <div class="module-metrics" style="margin:12px 0;color:#2575fc;font-size:1em;">1,200+ cards created</div>
-      <a href="http://card.soulvest.ai/" class="cta-button" style="background:#6A11CB;color:#fff;">Try Soulvest Card</a>
+      <p>Your digital affirmation card companion. This experience is visible publicly but remains part of the pilot companion-tool rollout.</p>
+      <div class="module-metrics" style="margin:12px 0;color:#2575fc;font-size:1em;">Pilot companion tool</div>
+      <a href="http://card.soulvest.ai/" class="cta-button" style="background:#6A11CB;color:#fff;">View Pilot Card</a>
     </div>
     <div class="module" style="transition:box-shadow 0.3s,transform 0.2s;">
       <div style="font-size:2.2em;margin-bottom:8px;">🧙‍♂️</div>
       <h3 style="font-family:'EB Garamond',serif;color:#6A11CB;">Soulvest LOA Agent</h3>
-      <p>Law of Attraction AI — get personalized affirmations, guidance, and manifestation support.</p>
-      <div class="module-metrics" style="margin:12px 0;color:#2575fc;font-size:1em;">2,500+ affirmations generated</div>
-      <a href="https://soulvest-affirmation.streamlit.app/" class="cta-button" style="background:#6A11CB;color:#fff;">Try LOA Agent</a>
+      <p>Law of Attraction companion agent for affirmations and guided reflection. This experience is part of the current pilot rollout.</p>
+      <div class="module-metrics" style="margin:12px 0;color:#2575fc;font-size:1em;">Pilot companion tool</div>
+      <a href="https://soulvest-affirmation.streamlit.app/" class="cta-button" style="background:#6A11CB;color:#fff;">Open Pilot LOA Agent</a>
     </div>
     <div class="module" style="transition:box-shadow 0.3s,transform 0.2s;">
       <div style="font-size:2.2em;margin-bottom:8px;">📔</div>
       <h3 style="font-family:'EB Garamond',serif;color:#6A11CB;">Soulvest Membook</h3>
-      <p>Your personal soulful memory book — capture, reflect, and celebrate your growth journey.</p>
-      <div class="module-metrics" style="margin:12px 0;color:#2575fc;font-size:1em;">New!</div>
-      <a href="https://soulvest-lovebook.streamlit.app/" class="cta-button" style="background:#6A11CB;color:#fff;">Try Membook</a>
+      <p>Your personal soulful memory book for reflection and growth tracking. This feature is available as early access while the broader resident model is still in pilot.</p>
+      <div class="module-metrics" style="margin:12px 0;color:#2575fc;font-size:1em;">Early access pilot</div>
+      <a href="https://soulvest-lovebook.streamlit.app/" class="cta-button" style="background:#6A11CB;color:#fff;">Open Early Access Membook</a>
     </div>
   </div>
   </section>
@@ -319,9 +405,12 @@
   <footer id="footer">
     <div style="margin-bottom:12px;">
       <a href="#hero">Home</a> |
-      <a href="#about">About</a> |
-      <a href="#modules">Products</a> |
-      <a href="#contact">Contact</a>
+      <a href="about.html">About</a> |
+      <a href="commune-overview.html">Overview</a> |
+      <a href="founder-updates.html">Updates</a> |
+      <a href="#products">Products</a> |
+      <a href="contact.html">Contact</a> |
+      <a href="privacy.html">Privacy</a>
     </div>
     <p>© 2026 Soulvest.ai — Emotional wealth, timeless returns.</p>
     <p>Contact: <a href="mailto:soulvest1111@gmail.com">soulvest1111@gmail.com</a></p>
